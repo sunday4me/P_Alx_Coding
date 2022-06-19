@@ -1,0 +1,3 @@
+Code To Print all combination of the letters except ee
+
+echo {a..z}{a..z} | tr ' ' '\n' | grep -v ee
