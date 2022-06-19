@@ -1,0 +1,37 @@
+How to format output with the printf command
+
+Let's look at the normal synthax of the printf command.
+
+printf options arguments
+
+It may also be presented as
+
+printf options [format specifiers] arguments
+
+The format specifiers are what tells the printf command what the format of the output should be. They also point to the arguments and restricts the type or format of values the printf command takes in as arguments.
+
+Examples of format specifiers that you are likely to use include
+
+Format specifier	                                 Description
+   %d	                                           decimal (integer) number (base 10)
+   %f	                                           floating-point number
+   %i	                                           integer number (base 10)
+   %o	                                           octal number (base 8)
+   %x	                                           hexadecimal number (base 16)
+   
+   
+   Using printf to print unformatted text
+You can pass an argument to the command without any format specifiers. 
+
+For example, if I want the shell to display my full name, I can pass my name as an argument to the printf command.
+
+printf "Sunday A. Jimoh \n"
+
+Print a number with two decimal places, followed by a new line
+NB: The number will be stored in the environment variable MYNUM
+
+This is going to be done just like the example we did above. You use the printf command with a float specifier %f but specify 2 decimal places, %.2f.
+
+The full command with the variable MYNUM will look like this:
+
+printf "%.2f \n" $MYNUM
