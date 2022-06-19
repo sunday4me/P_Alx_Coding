@@ -1,0 +1,66 @@
+Write a script that runs a C file" is referring to writing a bash script.
+
+Hence, programs written in C need to be compiled before execution. This compilation process is broken down into 4 major steps;
+
+1. Preprocessing
+2. Actual Compilation
+3. Assembly
+4. Linking
+
+What is preprocessing in C programming?
+In the process of compiling any C program, preprocessing is where all the header files and macros that were used in the program are processed 
+and added to the actual program.
+
+You remember how you always begin your C program with the code below;
+
+Any part of your C program that begins with # is meant for the preprocessor. The initial code above tells the preprocessor to include the standard 
+input output header (stdio.h) file.
+
+So, the first step that your C program goes through is to go and get that header file and every other header file as well as macros that you introduce in your program
+
+After this is done, a new file is generated, which will then be passed on for the actual compilation process
+
+"How do I get my C program to be preprocessed?", 
+
+There are a number of compilers that can be used but one common one which is available by default in almost all Linux distributions is the GNU Compiler Collection
+(GCC).
+
+Hence a simple gcc command can be used to compile (any of the 4 compilation processes mentioned earlier) your C program.
+
+However, by default, the gcc command does all the 4 steps together and gives you the final executable file.
+
+If you are looking for just one or more of the intermediate processes' outcomes, then you would have to introduce some options to the gcc command.
+
+What gcc option is used for just preprocessing?
+Linux commands can take up several options, but each command has specific mentions and what they mean. You can get details on each command by checking the man pages 
+or even using the help option.
+
+Options for a Linux command are introduced with a single hyphen (-) if it is one character and a double hyphen if it is a complete word (more on this later).
+
+To make sure your gcc command performs just the preprocessing, you will have to give it the -E option. So, a typical command to take a C program through only 
+preprocessing will be like:
+
+gcc -E name_of_file
+
+where name_of_file is the name of the file containing the source code which is expected to be a C program.
+
+How can I save the preprocessed C file into another file
+One of the attributes that the gcc command expects is the name of the output file preceeded by the option (-o).
+
+By default, the gcc command will produce an output with the same name. But if you want it to give the output file a special or different name, then you 
+would have to explicitly tell it to do so.
+
+How you do that is by introducing the option -o with an attribute being the name of the file. In the question that we are solving, we were told that the 
+output file should be called interm. Hence, our command will look like:
+
+gcc -E name_of_file -o interm
+
+The above command simply means, preprocess the C program in the file called name_of_file and give the preprocessed file the name interm.
+
+It is also worth noting that the C file which is to be our source code has been saved into a variable called $MYFILE. This means that you should replace the
+name of the source code file in your command with the variable $MYFILE.
+
+The solution thus will be like:
+#!/bin/bash
+gcc -E $MYFILE -o interm
+
