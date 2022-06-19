@@ -1,3 +1,21 @@
 Code To Print all combination of the letters except ee
 
 echo {a..z}{a..z} | tr ' ' '\n' | grep -v ee
+
+-----------------------------------------------------------------------------------------------------------------------
+What gcc option is used for the first three stages?
+
+The option to get the output of the assembly stage (including preprocessing, and compilation) is -c.
+
+This means that if you want to do all the first three stages of the compilation, then you have to run the command below;
+
+gcc -c name_of_source_file
+
+where name_of_source_file is the name of the file containing your source code.
+
+You may provide the name you want to give the output file as an attribute to the gcc command with the help of the option -o. That will look like;
+
+gcc -c name_of_source_file -o name_of_output_file
+
+The gcc -c command gives you an output file with the .o extension. Also, if you don't provide the name of the final output file, then it automatically uses 
+the same name as the source code file.
